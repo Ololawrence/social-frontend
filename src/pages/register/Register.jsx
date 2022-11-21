@@ -1,14 +1,18 @@
 import axios from "axios";
 import {Link} from 'react-router-dom';
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import "./register.css";
 import { useHistory } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
+import { CircularProgress } from "@material-ui/core";
+
 export default function Register() {
   const username = useRef();
   const email = useRef();
   const password = useRef();
   const passwordAgain = useRef();
   const history = useHistory();
+  const { isFetching } = useContext(AuthContext);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -71,7 +75,11 @@ export default function Register() {
               type="password"
             />
             <button className="loginButton" type="submit">
-              Sign Up
+             {isFetching ? (
+                <CircularProgress color="white" size="20px" />
+              ) : (
+                "signup"
+              )}
             </button>
             <Link to="/login" style={{display:"flex",justifyContent:"center", textDecoration:"none", width:"100%"}}>
 

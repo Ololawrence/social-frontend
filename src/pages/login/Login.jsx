@@ -55,11 +55,9 @@ export default function Login() {
             <span className="loginForgot">Forgot Password?</span>
             <Link to="/register" style={{display:"flex",justifyContent:"center", textDecoration:"none", width:"100%"}}>
             <button className="loginRegisterButton">
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Create a New Account"
-              )}
+             
+                Create a New Account
+              
             </button>
             </Link>
           </form>
